@@ -21,5 +21,8 @@ setup(name='WebShack',
       },
       include_package_data=True,
       zip_safe=True,
+      install_requires=[
+          'tinycss >=0.3, <0.4'
+      ],
       packages=find_packages())
 
