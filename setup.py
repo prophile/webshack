@@ -26,7 +26,8 @@ setup(name='WebShack',
       install_requires=[
           'tinycss >=0.3, <0.4',
           'PyYAML >=3.11, <4',
-          'docopt >=0.6.2, <0.7'
+          'docopt >=0.6.2, <0.7',
+          'termcolor >=1.1.0, <2'
       ],
       packages=find_packages())
 
