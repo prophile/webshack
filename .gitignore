@@ -1,0 +1,5 @@
+setuptools-*
+dist
+build
+__pycache__
+WebShack.egg-info
