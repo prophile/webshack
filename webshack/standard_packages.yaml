@@ -1,0 +1,9 @@
+jquery:
+  type: library
+  src: https://code.jquery.com/jquery-2.1.1.min.js
+jquery-ui:
+  type: library
+  src: https://code.jquery.com/ui/1.11.2/jquery-ui.min.js
+  dependencies:
+    - jquery
+
