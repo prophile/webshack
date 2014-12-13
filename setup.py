@@ -19,11 +19,14 @@ setup(name='WebShack',
               'webshack = webshack.cli:main'
           ]
       },
-      include_package_data=True,
       zip_safe=True,
+      package_data = {
+          'webshack': ['*.yaml']
+      },
       install_requires=[
           'tinycss >=0.3, <0.4',
-          'PyYAML >=3.11, <4'
+          'PyYAML >=3.11, <4',
+          'docopt >=0.6.2, <0.7'
       ],
       packages=find_packages())
 
