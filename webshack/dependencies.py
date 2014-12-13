@@ -26,6 +26,8 @@ class LinkProcessor(html.parser.HTMLParser):
             self.handle_link(attrs)
         if tag == "script":
             self.process_link(attrs.get('src'))
+        if tag == "img":
+            self.process_link(attrs.get('src'))
 
 def identify_html_dependencies(path):
     deps = set()
