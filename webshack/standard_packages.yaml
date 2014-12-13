@@ -9,4 +9,10 @@ jquery-ui:
 underscore:
   type: library
   src: http://underscorejs.org/underscore-min.js
+polymer:
+  base: https://raw.githubusercontent.com/Polymer/polymer/0.5.2/
+  assets:
+    polymer.html: polymer.html
+    polymer.js: polymer.js
+    layout.html: layout.html
 
