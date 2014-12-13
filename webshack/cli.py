@@ -19,11 +19,19 @@ from pathlib import Path
 
 VERSION="0.0.1"
 
+def handle_log(package):
+    if package is None:
+        sys.stdout.write("  [DONE]\n")
+        sys.stdout.flush()
+    else:
+        sys.stdout.write("Installing {}...".format(package))
+        sys.stdout.flush()
+
 def main():
     options = docopt(__doc__, version=VERSION)
     db = pdb.standard_package_db()
     components = Path('components')
     if options['get']:
         for package in options['<package>']:
-            install_package_hierarchy(package, db, components)
+            install_package_hierarchy(package, db, components, handle_log)
 
