@@ -6,4 +6,7 @@ jquery-ui:
   src: https://code.jquery.com/ui/1.11.2/jquery-ui.min.js
   dependencies:
     - jquery
+underscore:
+  type: library
+  src: http://underscorejs.org/underscore-min.js
 
