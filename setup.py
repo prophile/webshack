@@ -15,7 +15,7 @@ setup(name='WebShack',
       long_description=description,
       url='https://github.com/prophile/webshack',
       entry_points = {
-          'webshack.run': [
+          'console_scripts': [
               'webshack = webshack.cli:main'
           ]
       },
