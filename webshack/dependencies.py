@@ -1,8 +1,18 @@
 import html.parser
+from urllib.parse import urljoin
 import re
 import tinycss
 
-RELATIVE_LINK_RE = re.compile('../(.+?)/')
+def analyse_link(link, search_deps=True):
+    ROOT = 'https://example.com/a/b/c/'
+    BASE_URL = urljoin(ROOT, '__this_component/')
+    source = urljoin(BASE_URL, link)
+    if source.startswith(BASE_URL):
+        if not search_deps:
+            return source[len(BASE_URL):]
+    elif source.startswith(ROOT):
+        return source[len(ROOT):].split('/')[0]
+    return None
 
 class LinkProcessor(html.parser.HTMLParser):
     def __init__(self, dependencies):
@@ -12,9 +22,9 @@ class LinkProcessor(html.parser.HTMLParser):
     def process_link(self, link):
         if link is None:
             return
-        match = RELATIVE_LINK_RE.match(link)
+        match = analyse_link(link, search_deps=True)
         if match is not None:
-            self.dependencies.add(match.group(1))
+            self.dependencies.add(match)
 
     def handle_link(self, attrs):
         if attrs.get('rel', 'default') in ('stylesheet', 'import'):
@@ -39,9 +49,9 @@ def identify_html_dependencies(path):
 def identify_css_dependencies(path):
     deps = set()
     def dispatch_link(uri):
-        match = RELATIVE_LINK_RE.match(uri)
+        match = analyse_link(uri, search_deps=True)
         if match is not None:
-            deps.add(match.group(1))
+            deps.add(match)
     parser = tinycss.make_parser()
     with path.open('rb') as f:
         stylesheet = parser.parse_stylesheet_file(f)
