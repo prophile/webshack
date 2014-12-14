@@ -15,4 +15,224 @@ polymer:
     polymer.html: polymer.html
     polymer.js: polymer.js
     layout.html: layout.html
+core-elements:
+  base: https://raw.githubusercontent.com/Polymer/core-elements/0.5.2/
+  assets:
+    core-elements.html: core-elements.html
+core-list:
+  base: https://raw.githubusercontent.com/Polymer/core-list/0.5.2/
+  assets:
+    core-list.html: core-list.html
+    core-list.css: core-list.css
+core-selection:
+  base: https://raw.githubusercontent.com/Polymer/core-selection/0.5.2/
+  assets:
+    core-selection.html: core-selection.html
+core-resizable:
+  base: https://raw.githubusercontent.com/Polymer/core-resizable/0.5.2/
+  assets:
+    core-resizable.html: core-resizable.html
+core-splitter:
+  base: https://raw.githubusercontent.com/Polymer/core-splitter/0.5.2/
+  assets:
+    core-splitter.html: core-splitter.html
+    core-splitter.css: core-splitter.css
+core-overlay:
+  base: https://raw.githubusercontent.com/Polymer/core-overlay/0.5.2/
+  assets:
+    core-overlay.html: core-overlay.html
+core-transition:
+  base: https://raw.githubusercontent.com/Polymer/core-transition/0.5.2/
+  assets:
+    core-transition.html: core-transition.html
+core-meta:
+  base: https://raw.githubusercontent.com/Polymer/core-meta/0.5.2/
+  assets:
+    core-meta.html: core-meta.html
+core-animated-pages:
+  base: https://raw.githubusercontent.com/Polymer/core-animated-pages/0.5.2/
+  assets:
+    core-animated-pages.html: core-animated-pages.html
+    core-animated-pages.css: core-animated-pages.css
+core-selector:
+  base: https://raw.githubusercontent.com/Polymer/core-selector/0.5.2/
+  assets:
+    core-selector.html: core-selector.html
+core-tooltip:
+  base: https://raw.githubusercontent.com/Polymer/core-tooltip/0.5.2/
+  assets:
+    core-tooltip.html: core-tooltip.html
+    core-tooltip.css: core-tooltip.css
+core-focusable:
+  base: https://raw.githubusercontent.com/Polymer/core-focusable/0.5.2/
+  assets:
+    core-focusable.html: core-focusable.html
+    core-focusable.js: core-focusable.js
+core-doc-viewer:
+  base: https://raw.githubusercontent.com/Polymer/core-doc-viewer/0.5.2/
+  assets:
+    core-doc-viewer.html: core-doc-viewer.html
+    elements/core-doc-page.css: elements/core-doc-page.css
+    elements/core-doc-page.html: elements/core-doc-page.html
+    elements/core-doc-toc.css: elements/core-doc-toc.css
+    elements/core-doc-toc.html: elements/core-doc-toc.html
+core-icon:
+  base: https://raw.githubusercontent.com/Polymer/core-icon/0.5.2/
+  assets:
+    core-icon.html: core-icon.html
+    core-icon.css: core-icon.css
+core-iconset:
+  base: https://raw.githubusercontent.com/Polymer/core-iconset/0.5.2/
+  assets:
+    core-iconset.html: core-iconset.html
+core-toolbar:
+  base: https://raw.githubusercontent.com/Polymer/core-toolbar/0.5.2/
+  assets:
+    core-toolbar.html: core-toolbar.html
+    core-toolbar.css: core-toolbar.css
+core-style:
+  base: https://raw.githubusercontent.com/Polymer/core-style/0.5.2/
+  assets:
+    core-style.html: core-style.html
+core-signals:
+  base: https://raw.githubusercontent.com/Polymer/core-signals/0.5.2/
+  assets:
+    core-signals.html: core-signals.html
+core-shared-lib:
+  base: https://raw.githubusercontent.com/Polymer/core-shared-lib/0.5.2/
+  assets:
+    core-shared-lib.html: core-shared-lib.html
+core-scroll-threshold:
+  base: https://raw.githubusercontent.com/Polymer/core-scroll-threshold/0.5.2/
+  assets:
+    core-scroll-threshold.html: core-scroll-threshold.html
+core-scaffold:
+  base: https://raw.githubusercontent.com/Polymer/core-scaffold/0.5.2/
+  assets:
+    core-scaffold.html: core-scaffold.html
+core-icon-button:
+  base: https://raw.githubusercontent.com/Polymer/core-icon-button/0.5.2/
+  assets:
+    core-icon-button.html: core-icon-button.html
+    core-icon-button.css: core-icon-button.css
+core-drawer-panel:
+  base: https://raw.githubusercontent.com/Polymer/core-drawer-panel/0.5.2/
+  assets:
+    core-drawer-panel.html: core-drawer-panel.html
+    core-drawer-panel.css: core-drawer-panel.css
+core-header-panel:
+  base: https://raw.githubusercontent.com/Polymer/core-header-panel/0.5.2/
+  assets:
+    core-header-panel.html: core-header-panel.html
+    core-header-panel.css: core-header-panel.css
+core-media-query:
+  base: https://raw.githubusercontent.com/Polymer/core-media-query/0.5.2/
+  assets:
+    core-media-query.html: core-media-query.html
+core-icons:
+  base: https://raw.githubusercontent.com/Polymer/core-icons/0.5.2/
+  assets:
+    core-icons.html: core-icons.html
+    communication-icons.html: communication-icons.html
+    device-icons.html: device-icons.html
+    editor-icons.html: editor-icons.html
+    hardware-icons.html: hardware-icons.html
+    image-icons.html: image-icons.html
+    maps-icons.html: maps-icons.html
+    notification-icons.html: notification-icons.html
+    png-icons.html: png-icons.html
+    social-icons.html: social-icons.html
+core-iconset-svg:
+  base: https://raw.githubusercontent.com/Polymer/core-iconset-svg/0.5.2/
+  assets:
+    core-iconset-svg.html: core-iconset-svg.html
+core-range:
+  base: https://raw.githubusercontent.com/Polymer/core-range/0.5.2/
+  assets:
+    core-range.html: core-range.html
+core-popup-menu:
+  base: https://raw.githubusercontent.com/Polymer/core-popup-menu/0.5.2/
+  assets:
+    core-popup-menu.html: core-popup-menu.html
+    core-popup-menu.css: core-popup-menu.css
+core-pages:
+  base: https://raw.githubusercontent.com/Polymer/core-pages/0.5.2/
+  assets:
+    core-pages.html: core-pages.html
+    core-pages.css: core-pages.css
+core-menu:
+  base: https://raw.githubusercontent.com/Polymer/core-menu/0.5.2/
+  assets:
+    core-menu.html: core-menu.html
+    core-menu.css: core-menu.css
+core-menu-button:
+  base: https://raw.githubusercontent.com/Polymer/core-menu-button/0.5.2/
+  assets:
+    core-menu-button.html: core-menu-button.html
+core-dropdown:
+  base: https://raw.githubusercontent.com/Polymer/core-dropdown/0.5.2/
+  assets:
+    core-dropdown.html: core-dropdown.html
+core-a11y-keys:
+  base: https://raw.githubusercontent.com/Polymer/core-a11y-keys/0.5.2/
+  assets:
+    core-a11y-keys.html: core-a11y-keys.html
+core-localstorage:
+  base: https://raw.githubusercontent.com/Polymer/core-localstorage/0.5.2/
+  assets:
+    core-localstorage.html: core-localstorage.html
+core-layout-trbl:
+  base: https://raw.githubusercontent.com/Polymer/core-layout-trbl/0.5.2/
+  assets:
+    core-layout-trbl.html: core-layout-trbl.html
+core-layout-grid:
+  base: https://raw.githubusercontent.com/Polymer/core-layout-grid/0.5.2/
+  assets:
+    core-layout-grid.html: core-layout-grid.html
+core-label:
+  base: https://raw.githubusercontent.com/Polymer/core-label/0.5.2/
+  assets:
+    core-label.html: core-label.html
+core-item:
+  base: https://raw.githubusercontent.com/Polymer/core-item/0.5.2/
+  assets:
+    core-item.html: core-item.html
+    core-item.css: core-item.css
+core-input:
+  base: https://raw.githubusercontent.com/Polymer/core-input/0.5.2/
+  assets:
+    core-input.html: core-input.html
+    core-input.css: core-input.css
+core-image:
+  base: https://raw.githubusercontent.com/Polymer/core-image/0.5.2/
+  assets:
+    core-image.html: core-image.html
+    core-image.css: core-image.css
+core-ajax:
+  base: https://raw.githubusercontent.com/Polymer/core-ajax/0.5.2/
+  assets:
+    core-ajax.html: core-ajax.html
+core-drag-drop:
+  base: https://raw.githubusercontent.com/Polymer/core-drag-drop/0.5.2/
+  assets:
+    core-drag-drop.html: core-drag-drop.html
+core-collapse:
+  base: https://raw.githubusercontent.com/Polymer/core-collapse/0.5.2/
+  assets:
+    core-collapse.html: core-collapse.html
+    core-collapse.css: core-collapse.css
+core-dropdown-menu:
+  base: https://raw.githubusercontent.com/Polymer/core-dropdown-menu/0.5.2/
+  assets:
+    core-dropdown-menu.html: core-dropdown-menu.html
+core-field:
+  base: https://raw.githubusercontent.com/Polymer/core-field/0.5.0/
+  assets:
+    core-field.html: core-field.html
+    core-field.css: core-field.css
+core-scroll-header-panel:
+  base: https://raw.githubusercontent.com/Polymer/core-scroll-header-panel/0.5.2/
+  assets:
+    core-scroll-header-panel.html: core-scroll-header-panel.html
+    core-scroll-header-panel.css: core-scroll-header-panel.css
 
