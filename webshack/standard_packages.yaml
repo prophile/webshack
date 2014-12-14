@@ -24,6 +24,9 @@ howler:
 moment:
   type: library
   src: https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js
+d3:
+  type: library
+  src: https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js
 
 polymer:
   base: https://raw.githubusercontent.com/Polymer/polymer/0.5.2/
