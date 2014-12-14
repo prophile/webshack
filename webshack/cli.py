@@ -64,5 +64,8 @@ def main():
         for package in sorted(db):
             print(package)
     elif options['clean']:
-        shutil.rmtree(str(components))
+        try:
+            shutil.rmtree(str(components))
+        except FileNotFoundError:
+            pass
 
