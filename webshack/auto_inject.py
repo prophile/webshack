@@ -4,6 +4,8 @@ from urllib.error import URLError
 
 import sys
 
+ENORMOUS_INJECTION_HACK = False
+
 GITHUB_USERS = [('Polymer', '0.5.2')]
 
 def resolve_missing_user(user, branch, package):
@@ -23,13 +25,18 @@ def resolve_missing_user(user, branch, package):
     if matched_assets:
         print("    Matched.")
         data = {'base': base_url, 'assets': {a: a for a in matched_assets}}
-        print('---')
-        print('{}:'.format(package))
-        print('  base: {}'.format(base_url))
-        print('  assets:')
+        if ENORMOUS_INJECTION_HACK:
+            target = open('webshack/standard_packages.yaml', 'a')
+        else:
+            target = sys.stdout
+            print('---')
+        print('{}:'.format(package), file=target)
+        print('  base: {}'.format(base_url), file=target)
+        print('  assets:', file=target)
         for asset in matched_assets:
-            print('    {0}: {0}'.format(asset))
-        print('---')
+            print('    {0}: {0}'.format(asset), file=target)
+        if not ENORMOUS_INJECTION_HACK:
+            print('---')
         return True
     return False
 
