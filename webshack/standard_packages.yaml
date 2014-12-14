@@ -236,3 +236,98 @@ core-scroll-header-panel:
     core-scroll-header-panel.html: core-scroll-header-panel.html
     core-scroll-header-panel.css: core-scroll-header-panel.css
 
+paper-elements:
+  base: https://raw.githubusercontent.com/Polymer/paper-elements/0.5.2/
+  assets:
+    paper-elements.html: paper-elements.html
+paper-tabs:
+  base: https://raw.githubusercontent.com/Polymer/paper-tabs/0.5.2/
+  assets:
+    paper-tabs.html: paper-tabs.html
+    paper-tabs.css: paper-tabs.css
+paper-dropdown:
+  base: https://raw.githubusercontent.com/Polymer/paper-dropdown/0.5.2/
+  assets:
+    paper-dropdown.html: paper-dropdown.html
+paper-dialog:
+  base: https://raw.githubusercontent.com/Polymer/paper-dialog/0.5.2/
+  assets:
+    paper-dialog.html: paper-dialog.html
+paper-item:
+  base: https://raw.githubusercontent.com/Polymer/paper-item/0.5.2/
+  assets:
+    paper-item.html: paper-item.html
+paper-progress:
+  base: https://raw.githubusercontent.com/Polymer/paper-progress/0.5.2/
+  assets:
+    paper-progress.html: paper-progress.html
+    paper-progress.css: paper-progress.css
+paper-spinner:
+  base: https://raw.githubusercontent.com/Polymer/paper-spinner/0.5.2/
+  assets:
+    paper-spinner.html: paper-spinner.html
+    paper-spinner.css: paper-spinner.css
+paper-shadow:
+  base: https://raw.githubusercontent.com/Polymer/paper-shadow/0.5.2/
+  assets:
+    paper-shadow.html: paper-shadow.html
+    paper-shadow.css: paper-shadow.css
+paper-fab:
+  base: https://raw.githubusercontent.com/Polymer/paper-fab/0.5.2/
+  assets:
+    paper-fab.html: paper-fab.html
+paper-dropdown-menu:
+  base: https://raw.githubusercontent.com/Polymer/paper-dropdown-menu/0.5.2/
+  assets:
+    paper-dropdown-menu.html: paper-dropdown-menu.html
+    paper-dropdown-menu.css: paper-dropdown-menu.css
+paper-ripple:
+  base: https://raw.githubusercontent.com/Polymer/paper-ripple/0.5.2/
+  assets:
+    paper-ripple.html: paper-ripple.html
+paper-radio-button:
+  base: https://raw.githubusercontent.com/Polymer/paper-radio-button/0.5.2/
+  assets:
+    paper-radio-button.html: paper-radio-button.html
+    paper-radio-button.css: paper-radio-button.css
+paper-toggle-button:
+  base: https://raw.githubusercontent.com/Polymer/paper-toggle-button/0.5.2/
+  assets:
+    paper-toggle-button.html: paper-toggle-button.html
+    paper-toggle-button.css: paper-toggle-button.css
+paper-icon-button:
+  base: https://raw.githubusercontent.com/Polymer/paper-icon-button/0.5.2/
+  assets:
+    paper-icon-button.html: paper-icon-button.html
+paper-checkbox:
+  base: https://raw.githubusercontent.com/Polymer/paper-checkbox/0.5.2/
+  assets:
+    paper-checkbox.html: paper-checkbox.html
+    paper-checkbox.css: paper-checkbox.css
+paper-toast:
+  base: https://raw.githubusercontent.com/Polymer/paper-toast/0.5.2/
+  assets:
+    paper-toast.html: paper-toast.html
+    paper-toast.css: paper-toast.css
+paper-button:
+  base: https://raw.githubusercontent.com/Polymer/paper-button/0.5.2/
+  assets:
+    paper-button.html: paper-button.html
+paper-menu-button:
+  base: https://raw.githubusercontent.com/Polymer/paper-menu-button/0.5.2/
+  assets:
+    paper-menu-button.html: paper-menu-button.html
+    paper-menu-button.css: paper-menu-button.css
+paper-input:
+  base: https://raw.githubusercontent.com/Polymer/paper-input/0.5.2/
+  assets:
+    paper-input.html: paper-input.html
+paper-slider:
+  base: https://raw.githubusercontent.com/Polymer/paper-slider/0.5.2/
+  assets:
+    paper-slider.html: paper-slider.html
+    paper-slider.css: paper-slider.css
+paper-radio-group:
+  base: https://raw.githubusercontent.com/Polymer/paper-radio-group/0.5.2/
+  assets:
+    paper-radio-group.html: paper-radio-group.html
