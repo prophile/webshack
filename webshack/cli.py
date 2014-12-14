@@ -3,6 +3,7 @@
 Usage:
   webshack list
   webshack get <package>...
+  webshack clean
   webshack -h | --help
   webshack --version
 
@@ -20,6 +21,7 @@ from .install_package import install_package_hierarchy, MissingPackageError
 from .auto_inject import resolve_missing
 from . import package_db as pdb
 from pathlib import Path
+import shutil
 
 VERSION="0.0.1"
 
@@ -61,4 +63,6 @@ def main():
     elif options['list']:
         for package in sorted(db):
             print(package)
+    elif options['clean']:
+        shutil.rmtree(str(components))
 
