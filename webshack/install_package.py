@@ -1,6 +1,9 @@
 from .dependencies import identify_dependencies
 from collections import deque
 
+class MissingPackageError(KeyError):
+    pass
+
 def install_package(package, components_dir):
     package_dir = components_dir / package.name
     deps = set()
@@ -16,6 +19,10 @@ def install_package_hierarchy(package, db, components_dir, log_output=lambda x: 
     while worklist:
         next_item = worklist.popleft()
         log_output(next_item)
+        try:
+            pkg = db[next_item]
+        except KeyError:
+            raise MissingPackageError(next_item)
         for new_dep in install_package(db[next_item], components_dir):
             if not (components_dir / new_dep).exists() and new_dep not in worklist:
                 worklist.append(new_dep)

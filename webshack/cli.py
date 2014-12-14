@@ -16,8 +16,9 @@ from docopt import docopt
 
 from termcolor import colored
 
-from webshack.install_package import install_package_hierarchy
-import webshack.package_db as pdb
+from .install_package import install_package_hierarchy, MissingPackageError
+from .auto_inject import resolve_missing
+from . import package_db as pdb
 from pathlib import Path
 
 VERSION="0.0.1"
@@ -49,8 +50,14 @@ def main():
     if options['get']:
         output = CLIOutput()
         for package in options['<package>']:
-            install_package_hierarchy(package, db, components,
-                                      log_output=output.log)
+            try:
+                install_package_hierarchy(package, db, components,
+                                          log_output=output.log)
+            except MissingPackageError as e:
+                sys.stdout.write('\n    {}\n'.format(colored("Missing package.", 'red', attrs=['bold'])))
+                sys.stdout.flush()
+                resolve_missing(*e.args)
+                return 1
     elif options['list']:
         for package in sorted(db):
             print(package)
