@@ -61,6 +61,8 @@ core-overlay:
   base: https://raw.githubusercontent.com/Polymer/core-overlay/0.5.2/
   assets:
     core-overlay.html: core-overlay.html
+    core-key-helper.html: core-key-helper.html
+    core-overlay-layer.html: core-overlay-layer.html
 core-transition:
   base: https://raw.githubusercontent.com/Polymer/core-transition/0.5.2/
   assets:
@@ -69,6 +71,14 @@ core-meta:
   base: https://raw.githubusercontent.com/Polymer/core-meta/0.5.2/
   assets:
     core-meta.html: core-meta.html
+core-animation:
+  base: https://raw.githubusercontent.com/Polymer/core-animation/0.5.2/
+  assets:
+    core-animation.html: core-animation.html
+    web-animations.html: web-animations.html
+web-animations-js:
+  type: library
+  src: https://raw.githubusercontent.com/web-animations/web-animations-js/1.0.4/web-animations-next-lite.min.js
 core-animated-pages:
   base: https://raw.githubusercontent.com/Polymer/core-animated-pages/0.5.2/
   assets:
@@ -88,6 +98,7 @@ core-focusable:
   assets:
     core-focusable.html: core-focusable.html
     core-focusable.js: core-focusable.js
+    polymer-mixin.js: polymer-mixin.js
 core-doc-viewer:
   base: https://raw.githubusercontent.com/Polymer/core-doc-viewer/0.5.2/
   assets:
@@ -265,14 +276,18 @@ paper-tabs:
   assets:
     paper-tabs.html: paper-tabs.html
     paper-tabs.css: paper-tabs.css
+    paper-tab.html: paper-tab.html
+    paper-tab.css: paper-tab.css
 paper-dropdown:
   base: https://raw.githubusercontent.com/Polymer/paper-dropdown/0.5.2/
   assets:
     paper-dropdown.html: paper-dropdown.html
+    paper-dropdown-transition.html: paper-dropdown-transition.html
 paper-dialog:
   base: https://raw.githubusercontent.com/Polymer/paper-dialog/0.5.2/
   assets:
     paper-dialog.html: paper-dialog.html
+    paper-dialog-base.html: paper-dialog-base.html
 paper-item:
   base: https://raw.githubusercontent.com/Polymer/paper-item/0.5.2/
   assets:
@@ -333,6 +348,7 @@ paper-button:
   base: https://raw.githubusercontent.com/Polymer/paper-button/0.5.2/
   assets:
     paper-button.html: paper-button.html
+    paper-button-base.html: paper-button-base.html
 paper-menu-button:
   base: https://raw.githubusercontent.com/Polymer/paper-menu-button/0.5.2/
   assets:
@@ -342,6 +358,7 @@ paper-input:
   base: https://raw.githubusercontent.com/Polymer/paper-input/0.5.2/
   assets:
     paper-input.html: paper-input.html
+    paper-input-decorator.html: paper-input-decorator.html
 paper-slider:
   base: https://raw.githubusercontent.com/Polymer/paper-slider/0.5.2/
   assets:
