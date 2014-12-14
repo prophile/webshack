@@ -11,20 +11,22 @@ def analyse_link(link, search_deps=True):
         if not search_deps:
             return source[len(BASE_URL):]
     elif source.startswith(ROOT):
-        return source[len(ROOT):].split('/')[0]
+        if search_deps:
+            return source[len(ROOT):].split('/')[0]
     return None
 
 class LinkProcessor(html.parser.HTMLParser):
-    def __init__(self, dependencies):
+    def __init__(self, receive_match, **kwargs):
         super().__init__()
-        self.dependencies = dependencies
+        self.receive_match = receive_match
+        self.analyse_args = kwargs
 
     def process_link(self, link):
         if link is None:
             return
-        match = analyse_link(link, search_deps=True)
+        match = analyse_link(link, **self.analyse_args)
         if match is not None:
-            self.dependencies.add(match)
+            self.receive_match(match)
 
     def handle_link(self, attrs):
         if attrs.get('rel', 'default') in ('stylesheet', 'import'):
@@ -41,7 +43,9 @@ class LinkProcessor(html.parser.HTMLParser):
 
 def identify_html_dependencies(path):
     deps = set()
-    parser = LinkProcessor(deps)
+    parser = LinkProcessor(deps.add, search_deps=True)
+    with path.open('r') as f:
+        parser.feed(f.read())
     with path.open('r') as f:
         parser.feed(f.read())
     return iter(deps)
