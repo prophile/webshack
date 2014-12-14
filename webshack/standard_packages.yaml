@@ -9,12 +9,26 @@ jquery-ui:
 underscore:
   type: library
   src: http://underscorejs.org/underscore-min.js
+bacon:
+  type: library
+  src: https://cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.37/Bacon.min.js
+zepto:
+  type: library
+  src: https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js
+three:
+  type: library
+  src: https://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js
+howler:
+  type: library
+  src: https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.17/howler.min.js
+
 polymer:
   base: https://raw.githubusercontent.com/Polymer/polymer/0.5.2/
   assets:
     polymer.html: polymer.html
     polymer.js: polymer.js
     layout.html: layout.html
+
 core-elements:
   base: https://raw.githubusercontent.com/Polymer/core-elements/0.5.2/
   assets:
