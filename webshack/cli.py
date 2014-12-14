@@ -1,6 +1,7 @@
 """WebShack: Sensible web components.
 
 Usage:
+  webshack list
   webshack get <package>...
   webshack -h | --help
   webshack --version
@@ -50,4 +51,7 @@ def main():
         for package in options['<package>']:
             install_package_hierarchy(package, db, components,
                                       log_output=output.log)
+    elif options['list']:
+        for package in sorted(db):
+            print(package)
 
