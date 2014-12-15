@@ -2,18 +2,34 @@ import html.parser
 from urllib.parse import urljoin
 import re
 import tinycss
+from enum import Enum
+from os.path import commonprefix
+from collections import namedtuple
 
-def analyse_link(link, search_deps=True):
-    ROOT = 'https://example.com/a/b/c/'
-    BASE_URL = urljoin(ROOT, '__this_component/')
+class RefCat(Enum):
+    internal = 1
+    external = 2
+
+Ref = namedtuple('Ref', 'cat ref')
+
+def grok_ref(link, containing_component=None):
+    ROOT = 'https://example.com/a/b/'
+    if containing_component is not None:
+        BASE_URL = urljoin(ROOT, 'components/{}/'.format(containing_component))
+    else:
+        BASE_URL = ROOT
+    COMPONENTS_URL = urljoin(ROOT, 'components/')
     source = urljoin(BASE_URL, link)
-    if source.startswith(BASE_URL):
-        if not search_deps:
-            return source[len(BASE_URL):]
-    elif source.startswith(ROOT):
-        if search_deps:
-            return source[len(ROOT):].split('/')[0]
-    return None
+    if not source.startswith(COMPONENTS_URL):
+        return None
+    section = source[len(COMPONENTS_URL):]
+    parts = section.split('/')
+    component = parts[0]
+    elems = '/'.join(parts[1:])
+    if containing_component == component:
+        return Ref(cat=RefCat.internal, ref=elems)
+    else:
+        return Ref(cat=RefCat.external, ref=component)
 
 class LinkProcessor(html.parser.HTMLParser):
     def __init__(self, receive_match, **kwargs):
@@ -24,13 +40,12 @@ class LinkProcessor(html.parser.HTMLParser):
     def process_link(self, link):
         if link is None:
             return
-        match = analyse_link(link, **self.analyse_args)
+        match = grok_ref(link, **self.analyse_args)
         if match is not None:
             self.receive_match(match)
 
     def handle_link(self, attrs):
-        if attrs.get('rel', 'default') in ('stylesheet', 'import'):
-            self.process_link(attrs.get('href'))
+        self.process_link(attrs.get('href'))
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -41,21 +56,27 @@ class LinkProcessor(html.parser.HTMLParser):
         if tag == "img":
             self.process_link(attrs.get('src'))
 
-def identify_html_dependencies(path):
-    deps = set()
-    parser = LinkProcessor(deps.add, search_deps=True)
-    with path.open('r') as f:
-        parser.feed(f.read())
-    with path.open('r') as f:
-        parser.feed(f.read())
-    return iter(deps)
+COMPONENT_RE = re.compile('components/(.*?)/')
+def get_component(path):
+    match = COMPONENT_RE.match(str(path))
+    if match is not None:
+        return match.group(1)
+    return None
 
-def identify_css_dependencies(path):
-    deps = set()
+def identify_html_refs(path, get_ref):
+    parser = LinkProcessor(get_ref,
+                           containing_component=get_component(path))
+    with path.open('r') as f:
+        parser.feed(f.read())
+    with path.open('r') as f:
+        parser.feed(f.read())
+
+def identify_css_refs(path, get_ref):
     def dispatch_link(uri):
-        match = analyse_link(uri, search_deps=True)
+        match = grok_ref(uri,
+                         containing_component=get_component(path))
         if match is not None:
-            deps.add(match)
+            get_ref(match)
     parser = tinycss.make_parser()
     with path.open('rb') as f:
         stylesheet = parser.parse_stylesheet_file(f)
@@ -67,14 +88,31 @@ def identify_css_dependencies(path):
                 for part in decl.value:
                     if part.type == "URI":
                         dispatch_link(part.value)
-    return iter(deps)
 
-EXTENSION_HANDLERS = {'.html': identify_html_dependencies,
-                      '.css': identify_css_dependencies}
+EXTENSION_HANDLERS = {'.html': identify_html_refs,
+                      '.css': identify_css_refs}
 
-def identify_non_dependencies(path):
-    return ()
+def identify_non_refs(path, get_ref):
+    pass
+
+def identify_refs(path, get_ref):
+    handler = EXTENSION_HANDLERS.get(path.suffix, identify_non_refs)
+    return handler(path, get_ref)
 
 def identify_dependencies(path):
-    return EXTENSION_HANDLERS.get(path.suffix, identify_non_dependencies)(path)
+    dependencies = set()
+    def get_ref(ref):
+        if ref.cat == RefCat.external:
+            dependencies.add(ref.ref)
+    identify_refs(path, get_ref)
+    return iter(dependencies)
+
+def verify(path):
+    def get_ref(ref):
+        if ref.cat == RefCat.internal:
+            new_path = path.parent / ref.ref
+            if not new_path.exists():
+                print("Missing file: {}".format(ref.ref))
+                raise IOError("IS BROKEN")
+    identify_refs(path, get_ref)
 

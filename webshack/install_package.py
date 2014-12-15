@@ -1,4 +1,4 @@
-from .dependencies import identify_dependencies
+from .dependencies import identify_dependencies, verify
 from collections import deque
 
 class MissingPackageError(KeyError):
@@ -7,11 +7,15 @@ class MissingPackageError(KeyError):
 def install_package(package, components_dir):
     package_dir = components_dir / package.name
     deps = set()
+    asset_paths = []
     for asset, getter in package.assets.items():
         asset_path = package_dir / asset
         getter(asset_path)
+        asset_paths.append(asset_path)
         for dep in identify_dependencies(asset_path):
             deps.add(dep)
+    for path in asset_paths:
+        verify(path)
     return iter(deps)
 
 def install_package_hierarchy(package, db, components_dir, log_output=lambda x: None):

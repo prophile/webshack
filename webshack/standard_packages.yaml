@@ -283,6 +283,7 @@ paper-dropdown:
   assets:
     paper-dropdown.html: paper-dropdown.html
     paper-dropdown-transition.html: paper-dropdown-transition.html
+    paper-dropdown-transition.css: paper-dropdown-transition.css
 paper-dialog:
   base: https://raw.githubusercontent.com/Polymer/paper-dialog/0.5.2/
   assets:
@@ -359,6 +360,7 @@ paper-input:
   assets:
     paper-input.html: paper-input.html
     paper-input-decorator.html: paper-input-decorator.html
+    paper-input-decorator.css: paper-input-decorator.css
 paper-slider:
   base: https://raw.githubusercontent.com/Polymer/paper-slider/0.5.2/
   assets:
